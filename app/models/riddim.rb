@@ -1,0 +1,2 @@
+class Riddim < ApplicationRecord
+end
