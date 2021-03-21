@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_160921) do
+ActiveRecord::Schema.define(version: 2021_03_21_203950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_160921) do
   end
 
   create_table "song_artists", force: :cascade do |t|
-    t.bigint "song_id", null: false
     t.bigint "artist_id", null: false
+    t.bigint "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_song_artists_on_artist_id"
@@ -38,13 +44,17 @@ ActiveRecord::Schema.define(version: 2021_03_21_160921) do
 
   create_table "songs", force: :cascade do |t|
     t.string "title"
-    t.string "artist"
-    t.string "label"
     t.integer "year"
+    t.bigint "label_id", null: false
+    t.bigint "riddim_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["label_id"], name: "index_songs_on_label_id"
+    t.index ["riddim_id"], name: "index_songs_on_riddim_id"
   end
 
   add_foreign_key "song_artists", "artists"
   add_foreign_key "song_artists", "songs"
+  add_foreign_key "songs", "labels"
+  add_foreign_key "songs", "riddims"
 end

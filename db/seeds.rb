@@ -1,3 +1,9 @@
+puts "Cleaning database..."
+Artist.destroy_all
+Riddim.destroy_all
+Song.destroy_all
+SongArtist.destroy_all
+
 puts "Adding Artists..."
 
 paragons = Artist.create(name: "The Paragons")
@@ -15,14 +21,7 @@ sounddimension = Artist.create(name: "Sound Dimension")
 soulvendors = Artist.create(name: "The Soul Vendors")
 altonellis = Artist.create(name: "Alton Ellis")
 dennisbrown = Artist.create(name: "Dennis Brown")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
-skatalites = Artist.create(name: "")
+eekamouse = Artist.create(name: "Eek A Mouse")
 alcampbell = Artist.create(name: "Al Campbell")
 jamaicans = Artist.create(name: "The Jamaicans")
 eternals = Artist.create(name: "The Eternals")
@@ -53,64 +52,64 @@ bababoomriddim = Riddim.create(title: "Ba Ba Boom")
 
 puts "Adding Songs..."
 
-prettylooks = Song.create(title: "Pretty Looks isn't all", riddim: prettylooksriddim, original: true, year: )
-sa1 = SongArtist.create(artist: heptones, song: prettylooks)
+prettylooks = Song.create(title: "Pretty Looks isn't all", riddim_id: prettylooksriddim, original: true)
+sa1 = SongArtist.create(artist_id: heptones, song_id: prettylooks)
 
-takearide = Song.create(title: "Take a Ride", riddim: takearideriddim, original: true, year: 1968)
-sa22 = SongArtist.create(artist: alcampbell, song: takearide)
+takearide = Song.create(title: "Take a Ride", riddim_id: takearideriddim, original: true, year: 1968)
+sa22 = SongArtist.create(artist_id: alcampbell, song_id: takearide)
 
-drumsong = Song.create(title: "Drum Song", riddim: drumsongriddim, original: true, year: )
-sa2 = SongArtist.create(artist: jackiemittoo, song: drumsong)
+drumsong = Song.create(title: "Drum Song", riddim_id: drumsongriddim, original: true)
+sa2 = SongArtist.create(artist_id: jackiemittoo, song_id: drumsong)
 
-java = Song.create(title: "Java", riddim: javariddim, original: true, year: 1971)
-sa23 = SongArtist.create(artist: augustuspablo, song: java)
+java = Song.create(title: "Java", riddim_id: javariddim, original: true, year: 1971)
+sa23 = SongArtist.create(artist_id: augustuspablo, song_id: java)
 
-shankisheck = Song.create(title: "Shank I Sheck", riddim: , original: true, year: )
-sa24 = SongArtist.create(artist: bababrooks, song: shankisheck)
+shankisheck = Song.create(title: "Shank I Sheck", riddim_id: shankisheckriddim, original: true)
+sa24 = SongArtist.create(artist_id: bababrooks, song_id: shankisheck)
 
-bababoom = Song.create(title: "Ba Ba Boom", riddim: bababoomriddim, original: true, year: )
-sa25 = SongArtist.create(artist: jamaicans, song: bababoom)
+bababoom = Song.create(title: "Ba Ba Boom", riddim_id: bababoomriddim, original: true)
+sa25 = SongArtist.create(artist_id: jamaicans, song_id: bababoom)
 
-mrbassie = Song.create(title: "Mr Bassie", riddim: mrbassieriddim, original: true, year: )
-sa26 = SongArtist.create(artist: horaceandy, song: mrbassie)
+mrbassie = Song.create(title: "Mr Bassie", riddim_id: mrbassieriddim, original: true)
+sa26 = SongArtist.create(artist_id: horaceandy, song_id: mrbassie)
 
-swingeasy = Song.create(title: "Swing Easy", riddim: swingeasyriddim, original: true, year: )
-sa27 = SongArtist.create(artist: soulvendors, song: swingeasy)
+swingeasy = Song.create(title: "Swing Easy", riddim_id: swingeasyriddim, original: true)
+sa27 = SongArtist.create(artist_id: soulvendors, song_id: swingeasy)
 
-cantbuylove = Song.create(title: "Can't Buy Love", riddim: swingeasy, original: false, year: 1979)
-sa20 = SongArtist.create(artist: johnnyosbourne, song: cantbuylove)
+cantbuylove = Song.create(title: "Can't Buy Love", riddim_id: swingeasy, original: false, year: 1979)
+sa20 = SongArtist.create(artist_id: johnnyosbourne, song_id: cantbuylove)
 
-cusscuss = Song.create(title: "Cuss Cuss", riddim: cusscussriddim, original: true, year: )
-sa10 = SongArtist.create(artist: lloydrobinson, song: cusscuss)
+cusscuss = Song.create(title: "Cuss Cuss", riddim_id: cusscussriddim, original: true)
+sa10 = SongArtist.create(artist_id: lloydrobinson, song_id: cusscuss)
 
-skylarking = Song.create(title: "Skylarking", riddim: skylarkingriddim, original: true, year: )
-sa11 = SongArtist.create(artist: horaceandy, song: skylarking)
+skylarking = Song.create(title: "Skylarking", riddim_id: skylarkingriddim, original: true)
+sa11 = SongArtist.create(artist_id: horaceandy, song_id: skylarking)
 
-imjustaguy = Song.create(title: "I'm Just a Guy", riddim: vanityriddim, original: true, year: )
-sa7 = SongArtist.create(artist: altonellis, song: imjustaguy)
+imjustaguy = Song.create(title: "I'm Just a Guy", riddim_id: vanityriddim, original: true)
+sa7 = SongArtist.create(artist_id: altonellis, song_id: imjustaguy)
 
-vanity = Song.create(title: "Vanity", riddim: vanityriddim, original: false, year: )
-sa8 = SongArtist.create(artist: sugarminott, song: vanity)
+vanity = Song.create(title: "Vanity", riddim_id: vanityriddim, original: false)
+sa8 = SongArtist.create(artist_id: sugarminott, song_id: vanity)
 
-realrock = Song.create(title: "Real Rock", riddim: realrockriddim, original: true, year: )
-sa12 = SongArtist.create(artist: sounddimension, song: realrock)
+realrock = Song.create(title: "Real Rock", riddim_id: realrockriddim, original: true)
+sa12 = SongArtist.create(artist_id: sounddimension, song_id: realrock)
 
-satta = Song.create(title: "Satta Massagana", riddim: sattariddim, original: true, year: )
-sa6 = SongArtist.create(artist: abyssinians, song: satta)
+satta = Song.create(title: "Satta Massagana", riddim_id: sattariddim, original: true)
+sa6 = SongArtist.create(artist_id: abyssinians, song_id: satta)
 
-slengteng = Song.create(title: "Sleng Teng", riddim: slengtengriddim, original: true, year: )
-sa14 = SongArtist.create(artist: waynesmith, song: slengteng)
+slengteng = Song.create(title: "Sleng Teng", riddim_id: slengtengriddim, original: true)
+sa14 = SongArtist.create(artist_id: waynesmith, song_id: slengteng)
 
-queenoftheminstrel = Song.create(title: "Queen of the Minstrel", riddim: queenoftheminstrelriddim, original: true, year: )
-sa15 = SongArtist.create(artist: cornellcampbell, song: queenoftheminstrel)
-sa21 = SongArtist.create(artist: eternals, song: queenoftheminstrel)
+queenoftheminstrel = Song.create(title: "Queen of the Minstrel", riddim_id: queenoftheminstrelriddim, original: true)
+sa15 = SongArtist.create(artist_id: cornellcampbell, song_id: queenoftheminstrel)
+sa21 = SongArtist.create(artist_id: eternals, song_id: queenoftheminstrel)
 
-bababoom = Song.create(title: "Ba Ba Boom", riddim: bababoomriddim, original: true, year: )
-sa3 = SongArtist.create(artist: jamaicans, song: bababoom)
+bababoom = Song.create(title: "Ba Ba Boom", riddim_id: bababoomriddim, original: true)
+sa3 = SongArtist.create(artist_id: jamaicans, song_id: bababoom)
 
-truthandrights = Song.create(title: "Truth and Rights", riddim: takearideriddim, original: false, year: 1979)
-sa9 = SongArtist.create(artist: johnnyosbourne, song: truthandrights)
+truthandrights = Song.create(title: "Truth and Rights", riddim_id: takearideriddim, original: false, year: 1979)
+sa9 = SongArtist.create(artist_id: johnnyosbourne, song_id: truthandrights)
 
-bababoom2 = Song.create(title: "Ba Ba Boom", riddim: bababoomriddim, original: false, year: )
-sa4 = SongArtist.create(artist: jackiemittoo, song: bababoom2)
-sa5 = SongArtist.create(artist: soulvendors, song: bababoom2)
+bababoom2 = Song.create(title: "Ba Ba Boom", riddim_id: bababoomriddim, original: false)
+sa4 = SongArtist.create(artist_id: jackiemittoo, song_id: bababoom2)
+sa5 = SongArtist.create(artist_id: soulvendors, song_id: bababoom2)

@@ -1,2 +1,26 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<ul>
+  <% @artists.each do |artist| %>
+    <li><%= artist.name %> </li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @riddims.each do |riddim| %>
+    <li><%= riddim.title %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @songs.each do |song| %>
+    <li><%= song.title %> - <%= song.artist %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <%# @song_artists.each do |songartist| %>
+    <li><%#= songartist %></li>
+  <%# end %>
+</ul>
