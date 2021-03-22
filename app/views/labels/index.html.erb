@@ -1,0 +1,22 @@
+<h1>Labels Index</h1>
+
+<div class="flex-between">
+  <ul id="artists-list">
+  <% @labels.each do |l| %>
+    <li><%= l.id %> - <%= l.name %></li>
+  <% end %>
+  </ul>
+
+  <div>
+    <h3>Add a label</h3>
+
+    <%= simple_form_for(@label, html: {class: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>

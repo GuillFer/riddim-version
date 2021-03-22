@@ -13,6 +13,10 @@
 @import "pages/index";
 
 
+ul {
+  list-style-type:none;
+}
+
 .flex-between {
   display:flex;
   justify-content:space-between;

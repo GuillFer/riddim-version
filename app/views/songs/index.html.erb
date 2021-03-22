@@ -1,8 +1,30 @@
 <h1>Songs Index</h1>
 
-<ul>
-<% @songs.each do |s| %>
-  <li><%= s.song_artists[0].artist.name %> - <%= s.title %> (<%= s.label.name %>) / <%= s.riddim.title %></li>
-<% end %>
-</ul>
+<div class="flex-between">
+  <ul>
+  <% @songs.each do |s| %>
+    <li><%= s.song_artists[0].artist.name %> - <%= s.title %> (<%= s.label.name %>) / <%= s.riddim.title %></li>
+  <% end %>
+  </ul>
 
+  <div>
+    <h3>Add a song</h3>
+
+    <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
+      <%= f.fields_for :song_artists do |song_artist| %>
+        <%= song_artist.label :name, label: "Artist Name" %>
+        <%= song_artist.text_field :name %>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.input :title %>
+        <%= f.input :label %>
+        <%= f.input :year, as: :numeric %>
+        <%= f.input :riddim %>
+        <%= f.check_box :original %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>

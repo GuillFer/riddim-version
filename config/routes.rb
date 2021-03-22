@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'songs#index'
+  root to: 'pages#home'
 
-  resources :songs, only: [:index]
+  resources :songs, only: [:index, :create, :update]
   resources :artists, only: [:index, :create, :update]
-  resources :riddims, only: [:index]
-  resources :labels, only: [:index]
+  resources :riddims, only: [:index, :create, :update]
+  resources :labels, only: [:index, :create, :update]
 end

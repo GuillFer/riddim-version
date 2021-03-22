@@ -1,1 +1,22 @@
 <h1>Riddims Index</h1>
+
+<div class="flex-between">
+  <ul id="artists-list">
+  <% @riddims.each do |r| %>
+    <li><%= r.id %> - <%= r.title %></li>
+  <% end %>
+  </ul>
+
+  <div>
+    <h3>Add a riddim</h3>
+
+    <%= simple_form_for(@riddim, html: {class: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>
