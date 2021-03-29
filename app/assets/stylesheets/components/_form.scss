@@ -1,0 +1,15 @@
+.form-add {
+  margin:8px 0 32px;
+  label {
+    width:100px;
+  }
+
+  .form-group {
+    margin:8px 32px 8px 0;
+    display:flex;
+    flex-grow:2;
+    input {
+      flex-grow:2;
+    }
+  }
+}

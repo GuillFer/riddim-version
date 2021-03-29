@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-
+  get 'pages/form', to: 'pages#admin'
   resources :songs, only: [:index, :create, :update]
   resources :artists, only: [:index, :show, :create, :update]
   resources :riddims, only: [:index, :show, :create, :update]
