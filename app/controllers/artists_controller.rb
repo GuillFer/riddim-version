@@ -1,7 +1,12 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    @artists = Artist.all.sort_by {|a| a.name}
     @artist = Artist.new
+  end
+
+  def show
+    @artist = Artist.find(params[:id])
+    @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id)
   end
 
   def create

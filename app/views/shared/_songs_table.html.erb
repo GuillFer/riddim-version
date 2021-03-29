@@ -6,6 +6,7 @@
       <th>Label</th>
       <th>Year</th>
       <th>Riddim</th>
+      <th>Search</th>
     </tr>
   </thead>
 
@@ -19,6 +20,7 @@
         <td><%= link_to s.label.name, label_path(s.label) %></td>
         <td><%= s.year %></td>
         <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
+        <td><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
         </tr>
     <% end %>
   </tbody>
