@@ -21,3 +21,11 @@ ul {
   display:flex;
   justify-content:space-between;
 }
+
+nav {
+  padding:8px;
+  margin-bottom:24px;
+  a {
+    margin:0 16px 0 0;
+  }
+}

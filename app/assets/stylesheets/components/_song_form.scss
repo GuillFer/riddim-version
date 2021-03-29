@@ -1,0 +1,13 @@
+#song-form {
+  margin:32px 0;
+  label {
+    margin-right:16px;
+  }
+  .form-group:first-of-type {
+    display:flex;
+  }
+}
+
+#song_song_artists_name {
+  flex-grow:2;
+}

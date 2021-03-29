@@ -4,6 +4,11 @@ class RiddimsController < ApplicationController
     @riddim = Riddim.new
   end
 
+  def show
+    @riddim = Riddim.find(params[:id])
+    @songs = Song.where(riddim_id: @riddim.id)
+  end
+
   def create
     @riddim = Riddim.new(riddim_params)
     @riddim.save

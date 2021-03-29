@@ -1,0 +1,17 @@
+<%= simple_form_for(@song, html: {class: "form"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.fields_for :song_artists do |song_artist| %>
+      <%= song_artist.label :name, label: "Artist Name" %>
+      <%= song_artist.text_field :name %>
+    <% end %>
+  </div>
+  <%= f.input :title %>
+  <%= f.input :label %>
+  <%= f.input :year, as: :numeric %>
+  <%= f.input :riddim %>
+  <%= f.label :original %>
+  <%= f.check_box :original %>
+  <br>
+  <%= f.submit %>
+<% end %>

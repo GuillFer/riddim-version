@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :songs, only: [:index, :create, :update]
-  resources :artists, only: [:index, :create, :update]
-  resources :riddims, only: [:index, :create, :update]
-  resources :labels, only: [:index, :create, :update]
+  resources :artists, only: [:index, :show, :create, :update]
+  resources :riddims, only: [:index, :show, :create, :update]
+  resources :labels, only: [:index, :show, :create, :update]
 end

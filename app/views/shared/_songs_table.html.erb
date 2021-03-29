@@ -1,5 +1,3 @@
-<h1>Songs Index</h1>
-
 <table>
   <thead>
     <tr>
@@ -18,16 +16,10 @@
         <tr>
           <td><%= artist_label.join(' & ') %></td>
           <td><%= s.title %></td>
-          <td><%= s.label.name %></td>
+          <td><%= link_to s.label.name, label_path(s.label) %></td>
           <td><%= s.year %></td>
           <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
         </tr>
       <% end %>
   </tbody>
 </table>
-
-<div id="song-form">
-  <h3>Add a song</h3>
-
-  <%= render "song_form" %>
-</div>

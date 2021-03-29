@@ -15,12 +15,17 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.label = label
     @song.riddim = riddim
-    @artist = Artist.find_by(name: params[:song][:song_artists][:name])
-    @song_artist = SongArtist.new
-    @song_artist.song = @song
-    @song_artist.artist = @artist
     @song.save
-    @song_artist.save
+    @artists = params[:song][:song_artists][:name].split(";")
+    # raise
+    @artists.each do |artist|
+      @artist = Artist.find_by(name: artist)
+      @song_artist = SongArtist.new
+      @song_artist.song = @song
+      @song_artist.artist = @artist
+      @song_artist.save!
+    end
+
     redirect_to songs_path
   end
 
