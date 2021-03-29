@@ -1,6 +1,6 @@
 class RiddimsController < ApplicationController
   def index
-    @riddims = Riddim.all
+    @riddims = Riddim.all.sort_by {|r| r.title}
     @riddim = Riddim.new
   end
 

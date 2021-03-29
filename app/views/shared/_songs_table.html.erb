@@ -10,16 +10,16 @@
   </thead>
 
   <tbody>
-      <% @songs.each do |s| %>
-        <% artist_label = [] %>
-        <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
-        <tr>
-          <td><%= artist_label.join(' & ') %></td>
-          <td><%= s.title %></td>
-          <td><%= link_to s.label.name, label_path(s.label) %></td>
-          <td><%= s.year %></td>
-          <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
+    <% @songs.each do |s| %>
+      <% artist_label = [] %>
+      <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
+        <tr class="song<%= ' original' if s.original %>">
+        <td><%= artist_label.join(' & ') %></td>
+        <td><%= s.title %></td>
+        <td><%= link_to s.label.name, label_path(s.label) %></td>
+        <td><%= s.year %></td>
+        <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
         </tr>
-      <% end %>
+    <% end %>
   </tbody>
 </table>

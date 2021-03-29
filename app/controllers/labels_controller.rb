@@ -1,6 +1,6 @@
 class LabelsController < ApplicationController
   def index
-    @labels = Label.all
+    @labels = Label.all.sort_by {|l| l.name}
     @label = Label.new
   end
 

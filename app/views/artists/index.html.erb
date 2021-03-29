@@ -3,11 +3,11 @@
 <div class="flex-between">
   <ul id="artists-list">
   <% @artists.each do |a| %>
-    <li><%= a.id %> - <%= a.name %></li>
+    <li><%= link_to a.name, artist_path(a) %></li>
   <% end %>
   </ul>
 
-  <div>
+  <div class="fixed">
     <h3>Add an artist</h3>
 
     <%= simple_form_for(@artist, html: {class: "form"}) do |f| %>

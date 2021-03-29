@@ -3,7 +3,7 @@
 <div class="flex-between">
   <ul id="artists-list">
   <% @labels.each do |l| %>
-    <li><%= l.id %> - <%= l.name %></li>
+    <li><%= link_to l.name, label_path(l) %></li>
   <% end %>
   </ul>
 

@@ -1,30 +1,6 @@
 <h1>Songs Index</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>Song</th>
-      <th>Label</th>
-      <th>Year</th>
-      <th>Riddim</th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <% @songs.each do |s| %>
-        <% artist_label = [] %>
-        <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
-        <tr>
-          <td><%= artist_label.join(' & ') %></td>
-          <td><%= s.title %></td>
-          <td><%= s.label.name %></td>
-          <td><%= s.year %></td>
-          <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
+<%= render 'shared/songs_table' %>
 
 <div id="song-form">
   <h3>Add a song</h3>

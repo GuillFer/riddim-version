@@ -3,7 +3,7 @@
   <div class="form-group">
     <%= f.fields_for :song_artists do |song_artist| %>
       <%= song_artist.label :name, label: "Artist Name" %>
-      <%= song_artist.text_field :name %>
+      <%= song_artist.text_field :name, class: "form-control" %>
     <% end %>
   </div>
   <%= f.input :title %>
