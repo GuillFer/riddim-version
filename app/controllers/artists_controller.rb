@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     @artist.save
-    redirect_to artists_path
+    redirect_back(fallback_location: root_path)
   end
 
   def artist_params

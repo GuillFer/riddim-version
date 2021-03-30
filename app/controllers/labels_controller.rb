@@ -12,7 +12,7 @@ class LabelsController < ApplicationController
   def create
     @label = Label.new(label_params)
     @label.save
-    redirect_to labels_path
+    redirect_back(fallback_location: root_path)
   end
 
   def label_params

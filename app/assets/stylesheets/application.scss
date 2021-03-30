@@ -12,6 +12,11 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  width:75vw;
+  margin:auto;
+  font-size:0.875rem;
+}
 
 ul {
   list-style-type:none;

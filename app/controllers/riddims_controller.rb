@@ -12,7 +12,7 @@ class RiddimsController < ApplicationController
   def create
     @riddim = Riddim.new(riddim_params)
     @riddim.save
-    redirect_to riddims_path
+    redirect_back(fallback_location: root_path)
   end
 
   def riddim_params

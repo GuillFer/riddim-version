@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_204739) do
+ActiveRecord::Schema.define(version: 2021_03_30_124140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,15 @@ ActiveRecord::Schema.define(version: 2021_03_21_204739) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "original"
+    t.bigint "producer_id"
     t.index ["label_id"], name: "index_songs_on_label_id"
+    t.index ["producer_id"], name: "index_songs_on_producer_id"
     t.index ["riddim_id"], name: "index_songs_on_riddim_id"
   end
 
   add_foreign_key "song_artists", "artists"
   add_foreign_key "song_artists", "songs"
+  add_foreign_key "songs", "artists", column: "producer_id"
   add_foreign_key "songs", "labels"
   add_foreign_key "songs", "riddims"
 end
