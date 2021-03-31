@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id)
+    @producer_songs = Song.where('producer_id = ?', @artist.id)
   end
 
   def create

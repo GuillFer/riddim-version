@@ -8,6 +8,7 @@
       <th>Riddim</th>
       <th>Producer</th>
       <th>Search</th>
+      <th>Edit</th>
     </tr>
   </thead>
 
@@ -15,15 +16,17 @@
     <% @songs.each do |s| %>
       <% artist_label = [] %>
       <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
-        <tr class="song<%= ' original' if s.original %>">
+      <tr class="song<%= ' original' if s.original %>">
         <td><%= artist_label.join(' & ') %></td>
         <td><%= s.title %></td>
         <td><%= link_to s.label.name, label_path(s.label) %></td>
         <td><%= s.year %></td>
         <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
         <td><%= s.producer.name unless s.producer.nil? %></td>
-        <td><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
-        </tr>
+        <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
+        <td><%= link_to "Edit", edit_song_path(s) %></td>
+      </tr>
+
     <% end %>
   </tbody>
 </table>

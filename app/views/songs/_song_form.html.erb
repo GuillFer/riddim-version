@@ -1,7 +1,7 @@
 <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
 
   <div class="form-group">
-    <%= f.fields_for :song_artists do |song_artist| %>
+    <%= f.simple_fields_for(@song.song_artists) do |song_artist| %>
       <%= song_artist.label :name, label: "Artist Name" %>
       <%= song_artist.text_field :name, class: "form-control" %>
     <% end %>

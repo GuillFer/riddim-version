@@ -1,25 +1,19 @@
 class SongsController < ApplicationController
   def index
     @songs = Song.all
-    @song = Song.new
-    @song_artist = SongArtist.new
   end
 
-  def show
-
+  def new
+    @song = Song.new
   end
 
   def create
-    label = Label.find_by(name: params[:song][:label])
-    riddim = Riddim.find_by(title: params[:song][:riddim])
-    producer = Artist.find_by(name: params[:song][:producer])
     @song = Song.new(song_params)
-    @song.label = label
-    @song.riddim = riddim
-    @song.producer = producer
+    @song.label = Label.find_by(name: params[:song][:label])
+    @song.riddim = Riddim.find_by(title: params[:song][:riddim])
+    @song.producer = Artist.find_by(name: params[:song][:producer])
     @song.save!
-    @artists = params[:song][:song_artists][:name].split(";")
-    # raise
+    @artists = params[:song][:song_artist][:name].split(";")
     @artists.each do |artist|
       @artist = Artist.find_by(name: artist)
       @song_artist = SongArtist.new
@@ -35,9 +29,9 @@ class SongsController < ApplicationController
   end
 
   def update
-    # @song = Song.find(params[:id])
-    # @song.update(song_params)
-    # redirect_to songs_path
+    @song = Song.find(params[:id])
+    @song.update(song_params)
+    redirect_to songs_path
   end
 
   private
