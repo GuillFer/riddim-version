@@ -4,6 +4,6 @@ class Song < ApplicationRecord
   has_many :artists, through: :song_artists
   belongs_to :label
   belongs_to :riddim
-  belongs_to :producer, class_name: "Artist", foreign_key: :producer_id
-  validates :producer, presence: true
+  belongs_to :producer, class_name: "Artist", foreign_key: :producer_id, optional: true
+  # validates :producer, presence: true
 end

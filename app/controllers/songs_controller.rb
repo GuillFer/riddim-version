@@ -25,10 +25,16 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def song_params
-    params.require(:song).permit(:title, :year, :original, :label_id, :riddim_id, :producer_id, song_artists_attributes: [:song, :artist_id])
+    params.require(:song).permit(:id, :title, :year, :original, :label_id, :riddim_id, :producer_id, song_artists_attributes: [:id, :song, :artist_id])
   end
 
 end

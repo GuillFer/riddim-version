@@ -1,7 +1,7 @@
 <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
-
+  <a id="add-artist">Add an artist</a>
   <%= f.simple_fields_for(:song_artists) do |sa| %>
-    <%= sa.association :artist, label: "Artists" %>
+    <%= sa.association :artist, label: "Artists", class: "artistfield" %>
     <% unless sa.object.id.nil? %>
       <%= link_to "destroy", song_artist_path(sa.object), method: :delete %>
     <% end %>
