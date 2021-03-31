@@ -1,4 +1,15 @@
 <%= simple_form_for(@song_artist, html: {class: "form"}) do |f| %>
-  <%= f.input :song %>
-  <%= f.input :artist %>
+  <%= f.association :artist %>
+
+  <%= f.simple_fields_for :song, Song.new do |s| %>
+    <%= s.input :title %>
+    <%= s.association :label, collection: Label.order('name ASC') %>
+    <%= s.input :year, as: :numeric %>
+    <%= s.association :riddim, collection: Riddim.order('title ASC') %>
+    <%= s.association :producer, collection: Artist.order('name ASC') %>
+    <%= s.label :original %>
+    <%= s.check_box :original %>
+  <% end %>
+
+  <%= f.submit %>
 <% end %>
