@@ -1,5 +1,5 @@
 <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
-  <a id="add-artist">Add an artist</a>
+  <div id="add-artist">Add an artist</div>
   <%= f.simple_fields_for(:song_artists) do |sa| %>
     <%= sa.association :artist, label: "Artists", class: "artistfield" %>
     <% unless sa.object.id.nil? %>

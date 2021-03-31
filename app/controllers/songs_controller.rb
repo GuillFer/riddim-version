@@ -4,6 +4,9 @@ class SongsController < ApplicationController
   end
 
   def new
+    @artist = Artist.new
+    @label = Label.new
+    @riddim = Riddim.new
     @song = Song.new
     @song.song_artists.build
   end

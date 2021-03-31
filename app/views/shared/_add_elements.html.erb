@@ -1,0 +1,35 @@
+<div class="fixed">
+  <div class="add-element">
+    <h3>Add an artist</h3>
+    <%= simple_form_for(@artist, html: {class: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div class="add-element">
+    <h3>Add a label</h3>
+    <%= simple_form_for(@label, html: {class: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div class="add-element">
+    <h3>Add a riddim</h3>
+    <%= simple_form_for(@riddim, html: {class: "form"}) do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  </div>
