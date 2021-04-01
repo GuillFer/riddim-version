@@ -1,18 +1,18 @@
 <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
   <div id="add-artist">Add an artist</div>
   <%= f.simple_fields_for(:song_artists) do |sa| %>
-    <%= sa.association :artist, label: "Artists", class: "artistfield" %>
+    <%= sa.association :artist, label: "Artists", input_html: {id: 'artist-select'} %>
     <% unless sa.object.id.nil? %>
       <%= link_to "destroy", song_artist_path(sa.object), method: :delete %>
     <% end %>
   <% end %>
 
   <%= f.input :title %>
-  <%= f.association :label, collection: Label.order('name ASC') %>
+  <%= f.association :label, collection: Label.order('name ASC'), input_html: {id: 'label-select'} %>
   <% %>
   <%= f.input :year, as: :numeric %>
-  <%= f.association :riddim, collection: Riddim.order('title ASC') %>
-  <%= f.association :producer, collection: Artist.order('name ASC') %>
+  <%= f.association :riddim, collection: Riddim.order('title ASC'), input_html: {id: 'riddim-select'} %>
+  <%= f.association :producer, collection: Artist.order('name ASC'), input_html: {id: 'producer-select'} %>
   <%= f.label :original %>
   <%= f.check_box :original %>
   <br>
