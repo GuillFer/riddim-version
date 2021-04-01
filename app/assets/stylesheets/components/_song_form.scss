@@ -42,3 +42,11 @@
 .choices__inner {
   background-color:white;
 }
+
+.choices__list--multiple .choices__item {
+  background-color:#1B4332;
+  border-color:#081C15 ;
+  button {
+    border-color:white!important;
+  }
+}
