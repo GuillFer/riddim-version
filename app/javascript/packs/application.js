@@ -21,10 +21,8 @@ import "bootstrap";
 import "jquery";
 
 // Internal imports
-import { addSongArtist } from '../functions/add_song_artist';
 import { autoComplete } from '../functions/autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   autoComplete();
-  addSongArtist();
 });
