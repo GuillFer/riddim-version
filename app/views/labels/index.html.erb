@@ -1,22 +1,10 @@
 <h1>Labels (<%=@labels.count%>)</h1>
 
 <div class="flex-between">
-  <ul id="artists-list">
+  <ul id="labels-list">
   <% @labels.each do |l| %>
     <li><%= link_to l.name, label_path(l) %></li>
   <% end %>
   </ul>
-
-  <div class="fixed">
-    <h3>Add a label</h3>
-
-    <%= simple_form_for(@label, html: {class: "form"}) do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <%= f.submit %>
-    <% end %>
-  </div>
 
 </div>

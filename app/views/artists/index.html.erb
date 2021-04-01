@@ -7,17 +7,5 @@
   <% end %>
   </ul>
 
-  <div class="fixed">
-    <h3>Add an artist</h3>
-
-    <%= simple_form_for(@artist, html: {class: "form"}) do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <%= f.submit %>
-    <% end %>
-  </div>
-
 </div>
 

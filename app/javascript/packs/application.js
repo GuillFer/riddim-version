@@ -22,7 +22,9 @@ import "jquery";
 
 // Internal imports
 import { autoComplete } from '../functions/autocomplete';
+import { tabsDisplay } from "../functions/tabs"
 
 document.addEventListener('turbolinks:load', () => {
+  tabsDisplay();
   autoComplete();
 });

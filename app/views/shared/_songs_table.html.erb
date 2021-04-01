@@ -18,7 +18,11 @@
       <% artist_label = [] %>
       <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
       <tr class="song<%= ' original' if s.original %>">
-        <td><%= artist_label.join(' & ') %></td>
+        <td>
+          <% s.song_artists.each do |sa| %>
+          <%= link_to sa.artist.name, artist_path(sa.artist) %><%= " & " unless sa == s.song_artists.last %>
+          <% end %>
+        </td>
         <td><%= s.title %></td>
         <td><%= link_to s.label.name, label_path(s.label) %></td>
         <td><%= s.year %></td>

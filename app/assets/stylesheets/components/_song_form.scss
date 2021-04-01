@@ -26,6 +26,17 @@
 
 .add-element {
   margin:2rem 0;
+  form {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    div, input, label {
+      margin:0 4px;
+    }
+    label {
+      width:50px;
+    }
+  }
 }
 
 .choices__inner {

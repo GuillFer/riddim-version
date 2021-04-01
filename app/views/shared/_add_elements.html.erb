@@ -1,9 +1,8 @@
 <div class="fixed">
   <div class="add-element">
-    <h3>Add an artist</h3>
     <%= simple_form_for(@artist, html: {class: "form"}) do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name, "Artist" %>
         <%= f.text_field :name %>
       </div>
       <%= f.submit %>
@@ -11,10 +10,9 @@
   </div>
 
   <div class="add-element">
-    <h3>Add a label</h3>
     <%= simple_form_for(@label, html: {class: "form"}) do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name, "Label" %>
         <%= f.text_field :name %>
       </div>
       <%= f.submit %>
@@ -22,10 +20,9 @@
   </div>
 
   <div class="add-element">
-    <h3>Add a riddim</h3>
     <%= simple_form_for(@riddim, html: {class: "form"}) do |f| %>
       <div class="form-group">
-        <%= f.label :title %>
+        <%= f.label :title, "Riddim" %>
         <%= f.text_field :title %>
       </div>
       <%= f.submit %>
