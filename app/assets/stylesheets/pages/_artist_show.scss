@@ -20,3 +20,8 @@
 .table:not(.active) {
   display:none;
 }
+
+.artist-labels span {
+  position:relative;
+  left:-0.25rem;
+}

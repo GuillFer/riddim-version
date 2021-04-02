@@ -22,7 +22,7 @@ class LabelsController < ApplicationController
   def update
     @label = Label.find(params[:id])
     @label.update(label_params)
-    redirect_back(fallback_location: root_path)
+    redirect_to(labels_path)
   end
 
   def label_params
