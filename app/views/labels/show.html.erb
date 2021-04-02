@@ -1,3 +1,6 @@
 <h1><%= @label.name %></h1>
-
+<% unless @label.founder.nil? %>
+  <h5>Founded by <%= link_to @label.founder.name, artist_path(@label.founder) %></h5>
+<% end %>
+<%= link_to "Edit", edit_label_path(@label) %>
 <%= render 'shared/songs_table' %>

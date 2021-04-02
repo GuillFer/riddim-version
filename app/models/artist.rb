@@ -4,4 +4,5 @@ class Artist < ApplicationRecord
   accepts_nested_attributes_for :song_artists, allow_destroy: true
   validates_uniqueness_of :name
   has_many :songs, foreign_key: :producer_id, primary_key: :id
+  has_many :labels, foreign_key: :founder_id, primary_key: :id
 end

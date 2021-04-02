@@ -32,3 +32,7 @@ td.search {
 .pagination > * {
   margin:0 8px;
 }
+
+tr.song > td:nth-child(4) {
+  text-align:center;
+}

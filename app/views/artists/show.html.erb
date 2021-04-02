@@ -39,7 +39,8 @@
             <td><%= link_to s.label.name, label_path(s.label) %></td>
             <td><%= s.year %></td>
             <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
-            <td><%= s.producer.name unless s.producer.nil? %></td>
+            <%# raise %>
+            <td><%= link_to s.producer_alias.nil? || s.producer_alias.empty? ? s.producer.name : s.producer_alias, artist_path(s.producer) unless s.producer.nil? %></td>
             <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
             <td><%= link_to "Edit", edit_song_path(s) %></td>
           </tr>

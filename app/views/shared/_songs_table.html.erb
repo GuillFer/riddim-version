@@ -20,14 +20,14 @@
       <tr class="song<%= ' original' if s.original %>">
         <td>
           <% s.song_artists.each do |sa| %>
-          <%= link_to sa.as.nil? ? sa.artist.name : sa.as, artist_path(sa.artist) %><%= " & " unless sa == s.song_artists.last %>
+          <%= link_to sa.as.nil? || sa.as.empty? ? sa.artist.name : sa.as, artist_path(sa.artist) %><%= " & " unless sa == s.song_artists.last %>
           <% end %>
         </td>
         <td><%= s.title %></td>
         <td><%= link_to s.label.name, label_path(s.label) %></td>
         <td><%= s.year %></td>
         <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
-        <td><%= link_to s.producer.name, artist_path(s.producer) unless s.producer.nil? %></td>
+        <td><%= link_to s.producer_alias.nil? || s.producer_alias.empty? ? s.producer.name : s.producer_alias, artist_path(s.producer) unless s.producer.nil? %></td>
         <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
         <td><%= link_to "Edit", edit_song_path(s) %></td>
         <td><%= link_to "Delete", song_path(s), method: :delete %></td>

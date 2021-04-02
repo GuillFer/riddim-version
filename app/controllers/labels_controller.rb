@@ -15,7 +15,17 @@ class LabelsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def edit
+    @label = Label.find(params[:id])
+  end
+
+  def update
+    @label = Label.find(params[:id])
+    @label.update(label_params)
+    redirect_back(fallback_location: root_path)
+  end
+
   def label_params
-    params.require(:label).permit(:name)
+    params.require(:label).permit(:name, :founder_id)
   end
 end

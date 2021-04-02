@@ -12,6 +12,7 @@
   <%= f.input :year, as: :numeric %>
   <%= f.association :riddim, input_html: {id: 'riddim-select'} %>
   <%= f.association :producer, input_html: {id: 'producer-select'} %>
+  <%= f.input :producer_alias, label: "As" %>
   <%= f.label :original %>
   <%= f.check_box :original %>
   <br>

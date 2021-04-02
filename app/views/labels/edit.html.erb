@@ -1,0 +1,10 @@
+<h1>Edit <%= @label.name %></h1>
+
+<%= simple_form_for(@label) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.association :founder, input_html: {id: 'artist-select' } %>
+  </div>
+  <%= f.submit %>
+<% end %>
