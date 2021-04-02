@@ -1,6 +1,11 @@
 <%= simple_form_for(@song, html: {class: "form"}) do |f| %>
 
   <%= f.association :artists, label: "Artists", include_blank: false, include_hidden: false, input_html: {id: 'artist-select', multiple: true } %>
+  <% unless @song.artist_ids.empty? %>
+    <%= f.fields_for :song_artists do |sa| %>
+      <%= sa.input :as, label: "Alias for #{sa.object.artist.name}" %>
+    <% end %>
+  <% end %>
   <%= f.input :title %>
   <%= f.association :label, input_html: {id: 'label-select'} %>
   <% %>

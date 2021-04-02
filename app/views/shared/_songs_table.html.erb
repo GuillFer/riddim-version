@@ -20,7 +20,7 @@
       <tr class="song<%= ' original' if s.original %>">
         <td>
           <% s.song_artists.each do |sa| %>
-          <%= link_to sa.artist.name, artist_path(sa.artist) %><%= " & " unless sa == s.song_artists.last %>
+          <%= link_to sa.as.nil? ? sa.artist.name : sa.as, artist_path(sa.artist) %><%= " & " unless sa == s.song_artists.last %>
           <% end %>
         </td>
         <td><%= s.title %></td>

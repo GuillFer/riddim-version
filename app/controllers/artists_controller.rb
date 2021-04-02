@@ -4,6 +4,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.new
   end
 
+  def producers
+    @artists = Artist.joins(:songs).uniq.sort_by {|p| p.name}
+  end
+
   def show
     @artist = Artist.find(params[:id])
     @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id)

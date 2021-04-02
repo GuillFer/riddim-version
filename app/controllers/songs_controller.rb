@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.all.paginate(page: params[:page], per_page: 30)
+    require 'will_paginate/array'
+    @songs_total = Song.all.count
+    @songs = Song.all.sort.reverse.paginate(page: params[:page], per_page: 25)
   end
 
   def new
@@ -14,7 +16,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.save!
-    redirect_to songs_path
+    redirect_back(fallback_location: root_path)
   end
 
   def edit
@@ -37,7 +39,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:id, :title, :year, :original, :label_id, :riddim_id, :producer_id,  artist_ids: [])
+    params.require(:song).permit(:id, :title, :year, :original, :label_id, :riddim_id, :producer_id,  artist_ids: [], song_artists_attributes: [:id, :as])
   end
 
 end

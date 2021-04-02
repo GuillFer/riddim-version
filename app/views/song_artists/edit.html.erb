@@ -1,0 +1,9 @@
+<%= simple_form_for(@song_artist, html: {class: "form"}) do |f| %>
+
+  <%= f.association :artist %>
+  <%= f.association :song %>
+  <%= f.input :as %>
+
+  <br>
+  <%= f.submit %>
+<% end %>

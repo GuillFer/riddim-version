@@ -7,8 +7,7 @@ class SongArtistsController < ApplicationController
   end
 
   def edit
-    @song = Song.find(params[:id])
-    @song_artists = SongArtist.where(song_id: @song.id)
+    @song_artist = SongArtist.find(params[:id)
   end
 
   def destroy
