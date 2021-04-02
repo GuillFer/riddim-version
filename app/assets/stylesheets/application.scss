@@ -40,14 +40,6 @@ ul {
   }
 }
 
-nav {
-  padding:8px;
-  margin-bottom:24px;
-  a {
-    margin:0 16px 0 0;
-  }
-}
-
 a {
   color:#0A0A0A;
   text-shadow:1px;
@@ -65,5 +57,14 @@ a {
 .fixed {
   position:fixed;
   top:15vh;
+  right:10vw;
+}
+
+.current {
+  font-weight:bold;
+}
+
+.edit {
+  position:absolute;
   right:10vw;
 }

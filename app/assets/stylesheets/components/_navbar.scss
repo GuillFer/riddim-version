@@ -1,8 +1,15 @@
 nav {
   position:fixed;
   top:0;
+  left:0;
   background-color:#F4F4F4;
-  width:80vw;
-  border-bottom:1px dotted black;
+  width:100vw;
+  padding:8px 10vw!important;
   font-size:1rem;
+  background-color:#01110A;
+  margin-bottom:24px;
+  a {
+    margin:0 16px 0 0;
+    color:white!important;
+  }
 }

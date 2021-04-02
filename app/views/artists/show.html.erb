@@ -17,7 +17,7 @@
 <% end %>
 
 <div id="artist-table" class="table active">
-  <%= render 'shared/songs_table' %>
+  <%= render 'shared/songs_table' unless @songs.empty? %>
 </div>
 
 

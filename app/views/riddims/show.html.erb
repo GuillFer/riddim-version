@@ -1,3 +1,3 @@
 <h1><%= @riddim.title %></h1>
 
-<%= render 'shared/songs_table' %>
+<%= render 'shared/songs_table' unless @songs.empty? %>
