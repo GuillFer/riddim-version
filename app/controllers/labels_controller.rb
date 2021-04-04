@@ -6,6 +6,7 @@ class LabelsController < ApplicationController
 
   def show
     @label = Label.find(params[:id])
+    @children = Label.where(parent_id: @label.id)
     @songs = Song.where(label_id: @label.id)
   end
 
@@ -26,6 +27,6 @@ class LabelsController < ApplicationController
   end
 
   def label_params
-    params.require(:label).permit(:name, :founder_id)
+    params.require(:label).permit(:name, :founder_id, :parent_id)
   end
 end

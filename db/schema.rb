@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_173237) do
+ActiveRecord::Schema.define(version: 2021_04_04_190044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2021_04_02_173237) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "founder_id"
+    t.bigint "parent_id"
     t.index ["founder_id"], name: "index_labels_on_founder_id"
+    t.index ["parent_id"], name: "index_labels_on_parent_id"
   end
 
   create_table "riddims", force: :cascade do |t|
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_173237) do
   end
 
   add_foreign_key "labels", "artists", column: "founder_id"
+  add_foreign_key "labels", "labels", column: "parent_id"
   add_foreign_key "song_artists", "artists"
   add_foreign_key "song_artists", "songs"
   add_foreign_key "songs", "artists", column: "producer_id"

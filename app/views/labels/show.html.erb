@@ -4,4 +4,15 @@
   <h5>Founded by <%= link_to @label.founder.name, artist_path(@label.founder) %></h5>
 <% end %>
 
+<% unless @label.parent.nil? %>
+  <h6>Parent label : <%= link_to @label.parent.name, label_path(@label.parent) %></h6>
+<% end %>
+
+<% unless @children.nil? || @children.empty? %>
+  <h6>Sub-labels :
+    <% @children.each do |child| %>
+      <%= link_to child.name, label_path(child) %><%= ", " unless child == @children.last %>
+    <% end %>
+  </h6>
+<% end %>
 <%= render 'shared/songs_table' unless @songs.empty? %>

@@ -17,12 +17,15 @@
 <% end %>
 
 <div id="artist-table" class="table active">
+  <%= will_paginate @songs %>
   <%= render 'shared/songs_table' unless @songs.empty? %>
 </div>
 
 
 <% unless @producer_songs.empty? %>
+
   <div id="producer-table" class="table">
+    <%= will_paginate @producer_songs %>
     <table>
       <thead>
         <tr>

@@ -5,6 +5,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.association :founder, input_html: {id: 'artist-select' } %>
+    <%= f.association :parent, input_html: {id: 'label-select' } %>
   </div>
   <%= f.submit %>
 <% end %>
