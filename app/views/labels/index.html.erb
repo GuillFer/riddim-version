@@ -3,7 +3,7 @@
 <div class="flex-between">
   <ul id="labels-list">
   <% @labels.each do |l| %>
-    <li><%= link_to l.name, label_path(l) %></li>
+    <li class="<%="red" if l.founder.nil?%>"><%= link_to l.name, label_path(l) %></li>
   <% end %>
   </ul>
 

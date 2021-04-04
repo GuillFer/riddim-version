@@ -8,15 +8,14 @@
       <th>Riddim</th>
       <th>Producer</th>
       <th>Search</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @songs.each do |s| %>
       <% artist_label = [] %>
-      <% s.song_artists.each {|sa| artist_label << sa.artist.name } %>
+      <% s.song_artists.each {|sa| sa.as.nil? || sa.as.empty? ? artist_label << sa.artist.name : artist_label << sa.as } %>
       <tr class="song<%= ' original' if s.original %>">
         <td>
           <% s.song_artists.each do |sa| %>
@@ -29,8 +28,7 @@
         <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
         <td><%= link_to s.producer_alias.nil? || s.producer_alias.empty? ? s.producer.name : s.producer_alias, artist_path(s.producer) unless s.producer.nil? %></td>
         <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
-        <td><%= link_to "Edit", edit_song_path(s) %></td>
-        <td><%= link_to "Delete", song_path(s), method: :delete, data: { confirm: "Delete #{s.title}?" }%></td>
+        <td><%= link_to "Edit", edit_song_path(s) %> / <%= link_to "Delete", song_path(s), method: :delete, data: { confirm: "Delete #{s.title}?" }%></td>
       </tr>
 
     <% end %>
