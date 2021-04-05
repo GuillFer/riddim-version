@@ -7,7 +7,7 @@ class LabelsController < ApplicationController
   def show
     @label = Label.find(params[:id])
     @children = Label.where(parent_id: @label.id)
-    @songs = Song.where(label_id: @label.id)
+    @songs = Song.where(label_id: @label.id).sort_by {|s|s.artists[0].name}
   end
 
   def create

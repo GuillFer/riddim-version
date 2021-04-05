@@ -6,7 +6,7 @@ class RiddimsController < ApplicationController
 
   def show
     @riddim = Riddim.find(params[:id])
-    @songs = Song.where(riddim_id: @riddim.id)
+    @songs = Song.where(riddim_id: @riddim.id).sort_by {|s|s.artists[0].name}
   end
 
   def create

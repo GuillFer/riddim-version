@@ -5,6 +5,11 @@ class SongsController < ApplicationController
     @songs = Song.all.sort.reverse.paginate(page: params[:page], per_page: 25)
   end
 
+  def originals
+    require 'will_paginate/array'
+    @songs = Song.where(original: true).paginate(page: params[:page], per_page: 25)
+  end
+
   def new
     @artist = Artist.new
     @label = Label.new

@@ -12,8 +12,8 @@ class ArtistsController < ApplicationController
     require 'will_paginate/array'
     @artist = Artist.find(params[:id])
     @artist_labels = Label.where('founder_id = ?', @artist.id)
-    @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).paginate(page: params[:page], per_page: 25)
-    @producer_songs = Song.where('producer_id = ?', @artist.id).paginate(page: params[:page], per_page: 25)
+    @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
+    @producer_songs = Song.where('producer_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
   end
 
   def create

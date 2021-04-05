@@ -21,6 +21,7 @@ body {
   font-size:0.875rem;
   padding:4rem 0;
   color:#0A0A0A;
+  position:relative;
 }
 
 h1 {
@@ -62,6 +63,12 @@ a {
   position:fixed;
   top:15vh;
   right:10vw;
+}
+
+.top-right {
+  position:absolute;
+  top:80px;
+  right:0;
 }
 
 .current {
