@@ -1,5 +1,9 @@
 <h1>Songs Index (<%=@songs_total%>)</h1>
-<%= link_to 'Original Songs', songs_originals_path, class: 'top-right' %>
+<div class="top-right">
+<%= link_to 'Original Songs', songs_originals_path %>
+<%= link_to 'Instrumentals', songs_instrumentals_path %>
+</div>
+
 <%= will_paginate @songs %>
 <%= render 'shared/songs_table' %>
 

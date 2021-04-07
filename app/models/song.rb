@@ -5,5 +5,4 @@ class Song < ApplicationRecord
   belongs_to :label
   belongs_to :riddim
   belongs_to :producer, class_name: "Artist", foreign_key: :producer_id, optional: true
-  # validates :producer, presence: true
 end

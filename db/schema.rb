@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_190044) do
+ActiveRecord::Schema.define(version: 2021_04_07_155804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_190044) do
     t.boolean "original"
     t.bigint "producer_id"
     t.string "producer_alias"
+    t.boolean "instrumental"
     t.index ["label_id"], name: "index_songs_on_label_id"
     t.index ["producer_id"], name: "index_songs_on_producer_id"
     t.index ["riddim_id"], name: "index_songs_on_riddim_id"

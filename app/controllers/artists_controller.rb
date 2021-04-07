@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all.sort_by {|a| a.name}
+    @artists = Artist.all.uniq.sort_by {|a| a.name}
     @artist = Artist.new
   end
 
@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
   def show
     require 'will_paginate/array'
     @artist = Artist.find(params[:id])
+    # @tab = params[:tab] || @artist.main_role
     @artist_labels = Label.where('founder_id = ?', @artist.id)
     @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
     @producer_songs = Song.where('producer_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)

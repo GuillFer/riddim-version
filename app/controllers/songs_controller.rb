@@ -2,12 +2,17 @@ class SongsController < ApplicationController
   def index
     require 'will_paginate/array'
     @songs_total = Song.all.count
-    @songs = Song.all.sort.reverse.paginate(page: params[:page], per_page: 25)
+    @songs = Song.all.sort.reverse.paginate(page: params[:page], per_page: 50)
   end
 
   def originals
     require 'will_paginate/array'
-    @songs = Song.where(original: true).paginate(page: params[:page], per_page: 25)
+    @songs = Song.where(original: true).paginate(page: params[:page], per_page: 50)
+  end
+
+  def instrumentals
+    require 'will_paginate/array'
+    @songs = Song.where(instrumental: true).paginate(page: params[:page], per_page: 50)
   end
 
   def new
@@ -44,7 +49,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:id, :title, :year, :original, :label_id, :riddim_id, :producer_id, :producer_alias,  artist_ids: [], song_artists_attributes: [:id, :as])
+    params.require(:song).permit(:id, :title, :year, :original, :instrumental, :label_id, :riddim_id, :producer_id, :producer_alias,  artist_ids: [], song_artists_attributes: [:id, :as])
   end
 
 end

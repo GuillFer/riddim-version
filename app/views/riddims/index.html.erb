@@ -3,7 +3,7 @@
 <div class="flex-between">
   <ul id="riddims-list">
   <% @riddims.each do |r| %>
-    <li><%= link_to r.title, riddim_path(r) %></li>
+    <li><%= link_to r.title, riddim_path(r) %> (<%=Song.where(riddim_id: r.id).count%>)</li>
   <% end %>
   </ul>
 
