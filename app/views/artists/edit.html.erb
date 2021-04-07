@@ -1,0 +1,14 @@
+<h1>Edit <%= @artist.name %></h1>
+
+<%= simple_form_for(@artist) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.fields_for :members do |m| %>
+      <%= m.hidden_field :member, value: @artist.id %>
+      <%= m.association :band, label: "Member of" %>
+      <%# <% raise %>
+    <% end %>
+  </div>
+  <%= f.submit %>
+<% end %>

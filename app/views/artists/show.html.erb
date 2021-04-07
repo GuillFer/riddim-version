@@ -1,4 +1,22 @@
 <h1><%=@artist.name%></h1>
+<% unless @members.empty? %>
+  <h5>Members : <% @members.each do |m| %>
+    <%= link_to m.member.name, artist_path(m.member) %>
+      <% unless m == @members.last %>
+        <span>, </span>
+      <% end %>
+    <% end %>
+  </h5>
+<% end %>
+<% unless @bands.empty? %>
+  <h5>Member of : <% @bands.each do |band| %>
+    <%= link_to band.band.name, artist_path(band.band) %>
+      <% unless band == @bands.last %>
+        <span>, </span>
+      <% end %>
+    <% end %>
+  </h5>
+<% end %>
 <% unless @artist_labels.empty? %>
   <h5 class="artist-labels">Founder of : <% @artist_labels.each do |label| %>
     <%= link_to label.name, label_path(label) %>

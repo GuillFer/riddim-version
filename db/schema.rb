@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_155804) do
+ActiveRecord::Schema.define(version: 2021_04_07_201819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_04_07_155804) do
     t.bigint "parent_id"
     t.index ["founder_id"], name: "index_labels_on_founder_id"
     t.index ["parent_id"], name: "index_labels_on_parent_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "band_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_members_on_band_id"
+    t.index ["member_id"], name: "index_members_on_member_id"
   end
 
   create_table "riddims", force: :cascade do |t|
@@ -65,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_155804) do
 
   add_foreign_key "labels", "artists", column: "founder_id"
   add_foreign_key "labels", "labels", column: "parent_id"
+  add_foreign_key "members", "artists", column: "band_id"
+  add_foreign_key "members", "artists", column: "member_id"
   add_foreign_key "song_artists", "artists"
   add_foreign_key "song_artists", "songs"
   add_foreign_key "songs", "artists", column: "producer_id"

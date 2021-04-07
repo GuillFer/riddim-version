@@ -1,0 +1,8 @@
+<h1>New Member</h1>
+<%= simple_form_for(@member) do |m| %>
+  <div class="form-group">
+    <%= m.association :member, label: "Artist", input_html: {id: 'artist-select'} %>
+    <%= m.association :band, label: "Member of", input_html: {id: 'label-select'} %>
+  </div>
+  <%= m.submit %>
+<% end %>

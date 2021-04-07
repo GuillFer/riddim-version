@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :song_artists, only: [:new, :create, :edit, :update, :destroy]
   resources :riddims, only: [:index, :show, :create, :update]
   resources :labels, only: [:index, :show, :create, :edit, :update]
+  resources :members, only: [:new, :create, :edit, :update]
 end

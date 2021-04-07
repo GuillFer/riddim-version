@@ -1,5 +1,5 @@
-<h1>Artists (<%=@artists.count%>)</h1>
-
+<h1>Artists</h1>
+<%= will_paginate @artists %>
 <div class="flex-between">
   <ul id="artists-list">
   <% @artists.each do |a| %>

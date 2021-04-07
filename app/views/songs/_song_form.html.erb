@@ -13,11 +13,11 @@
   <%= f.association :riddim, input_html: {id: 'riddim-select'} %>
   <%= f.association :producer, input_html: {id: 'producer-select'} %>
   <%= f.input :producer_alias, label: "As" %>
-  <%= f.label :original %>
   <%= f.check_box :original %>
+  <%= f.label :original %>
   <br>
-  <%= f.label :instrumental %>
   <%= f.check_box :instrumental %>
+  <%= f.label :instrumental %>
   <br>
   <%= f.submit %>
 <% end %>
