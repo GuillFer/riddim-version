@@ -1,13 +1,5 @@
-<h1><%=@artist.name%></h1>
-<% unless @members.empty? %>
-  <h5>Members : <% @members.each do |m| %>
-    <%= link_to m.member.name, artist_path(m.member) %>
-      <% unless m == @members.last %>
-        <span>, </span>
-      <% end %>
-    <% end %>
-  </h5>
-<% end %>
+<h1 class="name" data-role="<%=@main_role%>"><%=@artist.name%></h1>
+
 <% unless @bands.empty? %>
   <h5>Member of : <% @bands.each do |band| %>
     <%= link_to band.band.name, artist_path(band.band) %>
@@ -17,6 +9,7 @@
     <% end %>
   </h5>
 <% end %>
+
 <% unless @artist_labels.empty? %>
   <h5 class="artist-labels">Founder of : <% @artist_labels.each do |label| %>
     <%= link_to label.name, label_path(label) %>
@@ -26,15 +19,15 @@
     <% end %>
   </h5>
 <% end %>
-<% unless @producer_songs.empty? %>
-<div class="tabs">
-  <div class="tab active" id="artist-tab">As artist</div>
-  <div class="tab" id="producer-tab">As producer</div>
-</div>
 
+<% unless @producer_songs.empty? || @songs.empty?  %>
+  <div class="tabs">
+    <div class="tab <%= "active" if @role == "artist" %>" id="artist-tab">As artist</div>
+    <div class="tab <%= "active" if @role == "producer" %>" id="producer-tab">As producer</div>
+  </div>
 <% end %>
 
-<div id="artist-table" class="table active">
+<div id="artist-table" class="table <%= "active" if @role == "artist" %>">
   <%= will_paginate @songs %>
   <%= render 'shared/songs_table' unless @songs.empty? %>
 </div>
@@ -42,7 +35,7 @@
 
 <% unless @producer_songs.empty? %>
 
-  <div id="producer-table" class="table">
+  <div id="producer-table" class="table <%= "active" if @role == "producer" %>">
     <%= will_paginate @producer_songs %>
     <table>
       <thead>
