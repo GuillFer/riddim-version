@@ -1,4 +1,6 @@
 class LabelsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @labels = Label.all.sort_by {|l| l.name}
     @label = Label.new

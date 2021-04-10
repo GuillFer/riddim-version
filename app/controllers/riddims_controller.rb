@@ -1,4 +1,5 @@
 class RiddimsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @riddims = Riddim.all.sort_by {|r| r.title}
     @riddim = Riddim.new
