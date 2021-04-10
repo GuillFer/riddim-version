@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :instrumentals, :originals]
+  # skip_before_action :authenticate_user!, only: [:index, :show, :instrumentals, :originals]
 
   def index
     require 'will_paginate/array'

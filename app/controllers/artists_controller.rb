@@ -1,9 +1,9 @@
 class ArtistsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :producers, :show]
+  # skip_before_action :authenticate_user!, only: [:index, :producers, :show]
 
   def index
     require 'will_paginate/array'
-    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.name}.paginate(page: params[:page], per_page: 148)
+    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.name}.paginate(page: params[:page], per_page: 200)
     @artist = Artist.new
   end
 
