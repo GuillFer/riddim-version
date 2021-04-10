@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'pages#home'
   get 'pages/form', to: 'pages#admin'
   get 'producers', to: 'artists#producers'

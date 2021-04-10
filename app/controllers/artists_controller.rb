@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   def index
     require 'will_paginate/array'
-    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.name}.paginate(page: params[:page], per_page: 100)
+    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.name}.paginate(page: params[:page], per_page: 148)
     @artist = Artist.new
   end
 
@@ -21,6 +21,12 @@ class ArtistsController < ApplicationController
 
   def edit
     @artist = Artist.find(params[:id])
+  end
+
+  def update
+    @artist = Artist.find(params[:id])
+    @artist.update(artist_params)
+    redirect_to(artists_path)
   end
 
   def create

@@ -15,4 +15,5 @@
     <% end %>
   </h6>
 <% end %>
+<%= will_paginate @songs %>
 <%= render 'shared/songs_table' unless @songs.empty? %>

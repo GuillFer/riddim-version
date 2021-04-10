@@ -1,4 +1,8 @@
-<h1 class="name" data-role="<%=@main_role%>"><%=@artist.name%></h1>
+<h1 class="name" data-role="<%=@main_role%>"><%=@artist.name%>
+<% unless @songs.empty? %>
+(<%= @songs.count %>)
+<%end%>
+</h1>
 
 <% unless @bands.empty? %>
   <h5>Member of : <% @bands.each do |band| %>
