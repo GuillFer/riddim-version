@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @bands = Member.where('member_id = ?', @artist.id)
     @artist_labels = Label.where('founder_id = ?', @artist.id)
-    @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
+    @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 50)
     @producer_songs = Song.where('producer_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
     @songs.count > @producer_songs.count ? @role = "artist" : @role = "producer"
   end

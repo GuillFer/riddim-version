@@ -27,7 +27,7 @@
         <td><%= s.year %></td>
         <td><%= link_to s.riddim.title, riddim_path(s.riddim) %></td>
         <td><%= link_to s.producer_alias.nil? || s.producer_alias.empty? ? s.producer.name : s.producer_alias, artist_path(s.producer) unless s.producer.nil? %></td>
-        <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
+        <td class="search"><a target="_blank" href="https://www.youtube.com/results?search_query=<%=artist_label.join('+').delete(' &')%>+<%= s.title %>"><i class="fab fa-youtube"></i></a></td>
         <td><%= link_to edit_song_path(s) do %>
           <i class="fas fa-edit"></i>
          <% end %> <%= link_to song_path(s), method: :delete, data: { confirm: "Delete #{s.title}?" } do %>

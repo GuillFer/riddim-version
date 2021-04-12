@@ -34,6 +34,7 @@
 <div id="artist-table" class="table <%= "active" if @role == "artist" %>">
   <%= will_paginate @songs %>
   <%= render 'shared/songs_table' unless @songs.empty? %>
+  <%= will_paginate @songs %>
 </div>
 
 
@@ -77,6 +78,7 @@
         <% end %>
       </tbody>
     </table>
+    <%= will_paginate @producer_songs %>
   </div>
 
 
