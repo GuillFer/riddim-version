@@ -1,3 +1,5 @@
+<% content_for :meta_title, "#{@label.name} - #{DEFAULT_META["meta_product_name"]}" %>
+
 <%= link_to "Edit", edit_label_path(@label), class: "edit" %>
 <h1><%= @label.name %></h1>
 <% unless @label.founder.nil? %>
