@@ -6,6 +6,10 @@
 <%end%>
 </h1>
 
+<% unless @artist.aka.nil? || @artist.aka.empty? %>
+  <h5>AKA : <%= @artist.aka %> </h5>
+<% end %>
+
 <% unless @bands.empty? %>
   <h5>Member of : <% @bands.each do |band| %>
     <%= link_to band.band.name, artist_path(band.band) %>

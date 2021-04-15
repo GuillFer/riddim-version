@@ -4,6 +4,8 @@
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <%= f.label :aka %>
+    <%= f.text_field :aka %>
     <%= f.fields_for :members do |m| %>
       <%= m.hidden_field :member, value: @artist.id %>
       <%= m.association :band, label: "Member of" %>
