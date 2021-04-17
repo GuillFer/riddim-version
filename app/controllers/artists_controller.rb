@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
 
   def index
     require 'will_paginate/array'
-    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.name}.paginate(page: params[:page], per_page: 200)
+    @artists = Artist.joins(:song_artists).uniq.sort_by {|a| a.song_artists.count}.reverse.paginate(page: params[:page], per_page: 200)
     @artist = Artist.new
   end
 
@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
     @bands = Member.where('member_id = ?', @artist.id)
     @artist_labels = Label.where('founder_id = ?', @artist.id)
     @songs = Song.joins(:song_artists).where('song_artists.artist_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 50)
-    @producer_songs = Song.where('producer_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 25)
+    @producer_songs = Song.where('producer_id = ?', @artist.id).sort_by {|s| s.title}.paginate(page: params[:page], per_page: 50)
     @songs.count > @producer_songs.count ? @role = "artist" : @role = "producer"
   end
 
@@ -28,7 +28,7 @@ class ArtistsController < ApplicationController
   def update
     @artist = Artist.find(params[:id])
     @artist.update(artist_params)
-    redirect_to(artists_path)
+    redirect_to(artist_path)
   end
 
   def create

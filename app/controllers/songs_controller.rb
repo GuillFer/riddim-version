@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   def index
     require 'will_paginate/array'
     @songs_total = Song.all.count
-    @songs = Song.all.limit(200).sort.reverse.paginate(page: params[:page], per_page: 50)
+    @songs = Song.last(200).reverse.paginate(page: params[:page], per_page: 50)
   end
 
   def originals

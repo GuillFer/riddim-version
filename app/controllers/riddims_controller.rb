@@ -1,13 +1,19 @@
 class RiddimsController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @riddims = Riddim.all.sort_by {|r| r.title}
+    @riddims = Riddim.joins(:songs).uniq.sort_by {|r| r.songs.count}.reverse
     @riddim = Riddim.new
   end
 
   def show
     @riddim = Riddim.find(params[:id])
     @songs = Song.where(riddim_id: @riddim.id).sort_by {|s|s.artists[0].name}
+  end
+
+  def random
+    @riddim = Riddim.find(rand(0..300))
+    @songs = Song.where(riddim_id: @riddim.id).sort_by {|s|s.artists[0].name}
+    render "show.html.erb"
   end
 
   def create

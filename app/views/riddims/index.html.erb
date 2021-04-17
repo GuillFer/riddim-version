@@ -5,7 +5,7 @@
 <div class="flex-between">
   <ul id="riddims-list">
   <% @riddims.each do |r| %>
-    <li><%= link_to r.title, riddim_path(r) %></li>
+    <li><%= link_to r.title, riddim_path(r) %> (<%=r.songs.count%>)</li>
   <% end %>
   </ul>
 
